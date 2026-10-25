@@ -1,188 +1,145 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiraConnect | ሥራን ከሠራተኛ ጋር ያገናኛል</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-    }
-    header {
-      background: #123b70;
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .logo { font-size: 25px; font-weight: bold; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 16px;
-    }
-    .hero {
-      padding: 65px 7%;
-      text-align: center;
-      background: #e5efff;
-    }
-    .hero h1 { font-size: 36px; margin-bottom: 15px; }
-    .hero p { font-size: 18px; line-height: 1.8; }
-    .button {
-      display: inline-block;
-      padding: 13px 20px;
-      margin: 10px 5px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-      border: 0;
-      font-size: 15px;
-    }
-    .primary { background: #1769d2; color: white; }
-    .secondary { background: white; color: #1769d2; }
-    section { padding: 35px 7%; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: white;
-      padding: 23px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #0000000d;
-    }
-    .card h3 { color: #1769d2; }
-    .form-box {
-      max-width: 520px;
-      margin: auto;
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0 15px;
-      border: 1px solid #ccd3df;
-      border-radius: 7px;
-      font-size: 16px;
-    }
-    label { font-weight: bold; }
-    footer {
-      background: #123b70;
-      color: white;
-      text-align: center;
-      padding: 22px;
-    }
-    @media(max-width: 600px) {
-      .hero h1 { font-size: 28px; }
-      nav a { margin-left: 8px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SiraConnect</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+header{background:#123b70;color:white;padding:18px;text-align:center}
+header h1{margin:0}
+nav{margin-top:12px}
+nav a{color:white;margin:8px;text-decoration:none}
+.hero{text-align:center;padding:55px 18px;background:#e2edff}
+.hero h2{font-size:30px}
+button{padding:12px 18px;border:0;border-radius:7px;background:#1769d2;color:white;font-size:16px;cursor:pointer}
+section{padding:25px 18px;max-width:900px;margin:auto}
+.box{background:white;padding:20px;margin:15px 0;border-radius:10px}
+input,select,textarea{width:100%;padding:12px;margin:8px 0 15px;border:1px solid #ccd3df;border-radius:6px;font-size:16px}
+label{font-weight:bold}
+footer{text-align:center;background:#123b70;color:white;padding:20px}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">🔧 SiraConnect</div>
-    <nav>
-      <a href="#home">መነሻ</a>
-      <a href="#services">አገልግሎቶች</a>
-      <a href="#post-job">ሥራ አስገባ</a>
-      <a href="#register">ተመዝገብ</a>
-    </nav>
-  </header>
+<header>
+<h1>🔧 SiraConnect</h1>
+<p>ሰራተኛን ከደንበኛ ጋር እናገናኛለን</p>
+<nav>
+<a href="#home">መነሻ</a>
+<a href="#search">ሰራተኛ ፈልግ</a>
+<a href="#register">ተመዝገብ</a>
+</nav>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <h1>የሚፈልጉትን ባለሙያ በቀላሉ ያግኙ!</h1>
-      <p>
-        SiraConnect ደንበኞችን ከታማኝ የሥራ ባለሙያዎች ጋር
-        ለማገናኘት የተዘጋጀ መድረክ ነው።
-      </p>
-      <a class="button primary" href="#post-job">ሥራ አስገባ</a>
-      <a class="button secondary" href="#register">ባለሙያ ሁን</a>
-    </section>
+<div class="hero" id="home">
+<h2>የሚፈልጉትን ባለሙያ በቀላሉ ያግኙ!</h2>
+<p>የሥራ ዓይነትንና አካባቢን መርጠው ተስማሚ ሰራተኛ ይፈልጉ።</p>
+<a href="#search"><button>ሰራተኛ ፈልግ</button></a>
+</div>
 
-    <section id="services">
-      <h2>የምናቀርባቸው አገልግሎቶች</h2>
-      <div class="cards">
-        <div class="card"><h3>🔌 ኤሌክትሪክ</h3><p>የኤሌክትሪክ ጥገናና ተከላ።</p></div>
-        <div class="card"><h3>🚰 የውሃ ቧንቧ</h3><p>የቧንቧ ተከላና ጥገና።</p></div>
-        <div class="card"><h3>🎨 ቀለም ቅብ</h3><p>የቤትና የሕንፃ ቀለም ቅብ።</p></div>
-        <div class="card"><h3>🪚 አናጢነት</h3><p>የበር፣ የቁም ሳጥንና የእንጨት ሥራ።</p></div>
-        <div class="card"><h3>🧹 ጽዳት</h3><p>የቤትና የቢሮ ጽዳት።</p></div>
-        <div class="card"><h3>🏗️ ግንባታ</h3><p>የግንባታና የጥገና ሥራዎች።</p></div>
-      </div>
-    </section>
+<section id="search">
+<h2>🔎 ሰራተኛ ፈልግ</h2>
+<div class="box">
+<label>የሥራ ዓይነት</label>
+<select id="searchSkill">
+<option value="">ሁሉም የሥራ ዓይነቶች</option>
+<option>ኤሌክትሪክ</option>
+<option>የውሃ ቧንቧ</option>
+<option>ቀለም ቅብ</option>
+<option>አናጢነት</option>
+<option>ጽዳት</option>
+<option>ግንባታ</option>
+</select>
+<label>ከተማ / አካባቢ</label>
+<input id="searchLocation" placeholder="ለምሳሌ፦ ጂማ">
+<button onclick="searchWorkers()">ፈልግ</button>
+<div id="searchResults"></div>
+</div>
+</section>
 
-    <section id="post-job">
-      <h2>አዲስ ሥራ አስገባ</h2>
-      <div class="form-box">
-        <form id="jobForm">
-          <label>የሥራው ርዕስ</label>
-          <input id="jobTitle" required placeholder="ለምሳሌ፦ የውሃ ቧንቧ ጥገና">
-          <label>የሥራው ዝርዝር</label>
-          <textarea id="jobDescription" required rows="4" placeholder="ስለ ሥራው ይግለጹ"></textarea>
-          <label>ከተማ / አካባቢ</label>
-          <input id="jobLocation" required placeholder="ለምሳሌ፦ ጂማ">
-          <button class="button primary" type="submit">ሥራውን አስገባ</button>
-        </form>
-        <div id="jobMessage" aria-live="polite"></div>
-      </div>
-    </section>
+<section id="register">
+<h2>👷 የሰራተኛ ምዝገባ</h2>
+<div class="box">
+<form id="workerForm">
+<label>ሙሉ ስም</label>
+<input id="workerName" required>
+<label>ስልክ ቁጥር</label>
+<input id="workerPhone" type="tel" required>
+<label>የሥራ ዓይነት</label>
+<select id="workerSkill" required>
+<option value="">ይምረጡ</option>
+<option>ኤሌክትሪክ</option>
+<option>የውሃ ቧንቧ</option>
+<option>ቀለም ቅብ</option>
+<option>አናጢነት</option>
+<option>ጽዳት</option>
+<option>ግንባታ</option>
+</select>
+<label>የሥራ ልምድ</label>
+<textarea id="workerExperience" required placeholder="ምን ያህል ልምድ አለዎት? ምን ዓይነት ሥራዎችን ሠርተዋል?" rows="4"></textarea>
+<label>ከተማ / አካባቢ</label>
+<input id="workerLocation" required placeholder="ለምሳሌ፦ ጂማ">
+<label>የሚጠይቁት ዋጋ (አማራጭ)</label>
+<input id="workerPrice" placeholder="ለምሳሌ፦ በቀን 500 ብር">
+<button type="submit">መረጃዬን አስገባ</button>
+</form>
+<p id="message"></p>
+</div>
+</section>
 
-    <section id="register">
-      <h2>የባለሙያ ምዝገባ</h2>
-      <div class="form-box">
-        <form id="workerForm">
-          <label>ሙሉ ስም</label>
-          <input id="workerName" required placeholder="ስምዎን ያስገቡ">
-          <label>የሥራ ዓይነት</label>
-          <select id="workerSkill" required>
-            <option value="">ይምረጡ</option>
-            <option>ኤሌክትሪክ</option>
-            <option>የውሃ ቧንቧ</option>
-            <option>ቀለም ቅብ</option>
-            <option>አናጢነት</option>
-            <option>ጽዳት</option>
-            <option>ግንባታ</option>
-            <option>ሌላ</option>
-          </select>
-          <label>ከተማ / አካባቢ</label>
-          <input id="workerLocation" required placeholder="የሚሠሩበት አካባቢ">
-          <button class="button primary" type="submit">ይመዝገቡ</button>
-        </form>
-        <div id="workerMessage" aria-live="polite"></div>
-      </div>
-    </section>
-  </main>
+<footer>© 2026 SiraConnect</footer>
 
-  <footer>
-    <p>© 2026 SiraConnect — ሥራን ከባለሙያ ጋር እናገናኛለን።</p>
-  </footer>
+<script>
+/*
+  ይህ ጊዜያዊ ማሳያ ነው።
+  መረጃዎች በዳታቤዝ አይቀመጡም።
+*/
+let workers = [];
 
-  <script>
-    document.getElementById("jobForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      document.getElementById("jobMessage").textContent =
-        "ምስጋና! ቅጹ ተቀብሏል። ሥራው ግን ገና በዳታቤዝ ውስጥ አልተቀመጠም።";
-      this.reset();
-    });
+document.getElementById("workerForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const worker={
+    name:document.getElementById("workerName").value.trim(),
+    phone:document.getElementById("workerPhone").value.trim(),
+    skill:document.getElementById("workerSkill").value,
+    experience:document.getElementById("workerExperience").value.trim(),
+    location:document.getElementById("workerLocation").value.trim(),
+    price:document.getElementById("workerPrice").value.trim()
+  };
+  workers.push(worker);
+  document.getElementById("message").textContent=
+    "መረጃው በዚህ ጊዜያዊ ገጽ ላይ ተቀብሏል። በቋሚነት እንዲቀመጥ ዳታቤዝ ማገናኘት ያስፈልጋል።";
+  this.reset();
+});
 
-    document.getElementById("workerForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      document.getElementById("workerMessage").textContent =
-        "ምስጋና! ቅጹ ተቀብሏል። ምዝገባው ግን ገና በዳታቤዝ ውስጥ አልተቀመጠም።";
-      this.reset();
-    });
-  </script>
+function searchWorkers(){
+  const skill=document.getElementById("searchSkill").value;
+  const location=document.getElementById("searchLocation").value.trim().toLowerCase();
+  const matches=workers.filter(w=>
+    (!skill || w.skill===skill) &&
+    (!location || w.location.toLowerCase().includes(location))
+  );
+  const results=document.getElementById("searchResults");
+  results.innerHTML="";
+  if(matches.length===0){
+    results.textContent="በዚህ ጊዜያዊ ሙከራ ላይ ተስማሚ ሰራተኛ አልተገኘም።";
+    return;
+  }
+  matches.forEach(w=>{
+    const card=document.createElement("div");
+    card.className="box";
+    const title=document.createElement("h3");
+    title.textContent=w.name+" — "+w.skill;
+    const details=document.createElement("p");
+    details.textContent="ልምድ: "+w.experience+" | አካባቢ: "+w.location+" | ዋጋ: "+(w.price||"ለመወያየት");
+    const call=document.createElement("a");
+    call.href="tel:"+w.phone;
+    call.textContent="📞 ደውል";
+    card.append(title,details,call);
+    results.appendChild(card);
+  });
+}
+</script>
 </body>
 </html>
