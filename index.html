@@ -39,7 +39,7 @@
             </div>
         </section>
 
-        <!-- About Section (ስለ ዌብሳይቱ ማብራሪያ) -->
+        <!-- About Section -->
         <section class="max-w-6xl mx-auto px-4 py-16">
             <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
                 <div class="text-center max-w-2xl mx-auto mb-10">
@@ -67,7 +67,7 @@
         </section>
     </div>
 
-    <!-- Main Search & Dashboard Section (Hidden until Sign Up / Log In) -->
+    <!-- Main Search & Dashboard Section -->
     <main id="dashboardSection" class="max-w-6xl mx-auto px-4 py-8 space-y-8 hidden">
         <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl flex justify-between items-center">
             <div>
@@ -191,21 +191,34 @@
         <p class="text-slate-500 mt-3 pt-3 border-t border-slate-800">© 2026 SiraConnect. መብቱ በህግ የተጠበቀ ነው።</p>
     </footer>
 
-    <!-- Script with Flow Control -->
+    <!-- Script with Robust LocalStorage Persistence -->
     <script>
-        let defaultWorkers = [
+        const defaultWorkers = [
             { name: "ዳዊት ተስፋዬ", phone: "+251916112233", skill: "የውሃ ቧንቧ", location: "ታቦር", price: "በስምምነት", experience: "የቤት ውስጥ የቧንቧ እና የውሃ ቆጣሪ ዝርጋታ ጥገና ባለሙያ።" },
             { name: "ሰላም አበበ", phone: "+251922334455", skill: "የቤት ጽዳት", location: "መሀል ከተማ", price: "በቀን 400 ብር", experience: "የቤት እና የቢሮ ሙሉ የጽዳት አገልግሎት በታማኝነት እና በፍጥነት።" },
             { name: "አማኑኤል በቀለ", phone: "+251933445566", skill: "ኤሌክትሪክ", location: "አዲስ ከተማ", price: "በስምምነት", experience: "የኤሌክትሪክ መስመር ዝርጋታ፣ የቆጣሪ እና የCurrent ጥገና።" }
         ];
 
-        let workers = JSON.parse(localStorage.getItem('hawassa_workers')) || defaultWorkers;
-        let currentUser = JSON.parse(localStorage.getItem('hawassa_current_user')) || null;
+        // Helper function to always get fresh workers from localStorage
+        function getStoredWorkers() {
+            const stored = localStorage.getItem('hawassa_workers');
+            if (stored) {
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return defaultWorkers;
+                }
+            }
+            // If nothing stored yet, initialize with default workers
+            localStorage.setItem('hawassa_workers', JSON.stringify(defaultWorkers));
+            return defaultWorkers;
+        }
 
         function checkViewState() {
             const landing = document.getElementById('landingPage');
             const dashboard = document.getElementById('dashboardSection');
             const nav = document.getElementById('authNav');
+            const currentUser = JSON.parse(localStorage.getItem('hawassa_current_user')) || null;
 
             if (currentUser) {
                 landing.classList.add('hidden');
@@ -232,6 +245,7 @@
             const results = document.getElementById("searchResults");
             results.innerHTML = "";
 
+            const workers = getStoredWorkers();
             const matches = workers.filter(w =>
                 (!skill || w.skill === skill) &&
                 (!location || w.location === location)
@@ -279,11 +293,17 @@
                 experience: document.getElementById("workerExperience").value.trim()
             };
 
-            workers.unshift(newWorker);
+            let workers = getStoredWorkers();
+            // Check if phone already exists
+            const existingIndex = workers.findIndex(w => w.phone === newWorker.phone);
+            if (existingIndex !== -1) {
+                workers[existingIndex] = newWorker; // Update if exists
+            } else {
+                workers.unshift(newWorker); // Add new at top
+            }
+
             localStorage.setItem('hawassa_workers', JSON.stringify(workers));
-            
-            currentUser = newWorker;
-            localStorage.setItem('hawassa_current_user', JSON.stringify(currentUser));
+            localStorage.setItem('hawassa_current_user', JSON.stringify(newWorker));
 
             closeModal();
             this.reset();
@@ -313,10 +333,11 @@
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const phone = document.getElementById('liPhone').value.trim();
-            const found = workers.find(w => w.phone === phone);
+            const workers = getStoredWorkers();
+            const found = workers.find(w => w.phone.trim() === phone);
+            
             if (found) {
-                currentUser = found;
-                localStorage.setItem('hawassa_current_user', JSON.stringify(currentUser));
+                localStorage.setItem('hawassa_current_user', JSON.stringify(found));
                 closeModal();
                 checkViewState();
                 alert(`እንኳን ደህና መጡ ${found.name}!`);
@@ -326,7 +347,6 @@
         });
 
         function logout() {
-            currentUser = null;
             localStorage.removeItem('hawassa_current_user');
             checkViewState();
         }
