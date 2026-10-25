@@ -1,201 +1,188 @@
-<!DOCTYPE html><html lang="am">
+<!DOCTYPE html>
+<html lang="am">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiraConnect | ስራን ከሰራተኛ ጋር ያገናኛል</title>  <style>
-    * {
-      box-sizing: border-box;
-    }
-
+  <title>SiraConnect | ሥራን ከሠራተኛ ጋር ያገናኛል</title>
+  <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f3f7f6;
-      color: #18332c;
+      background: #f5f7fb;
+      color: #172033;
     }
-
     header {
-      background: #087f5b;
+      background: #123b70;
       color: white;
-      padding: 22px 16px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 30px;
-    }
-
-    header p {
-      margin-bottom: 0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 35px 18px;
-      background: white;
-    }
-
-    .hero h2 {
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      line-height: 1.8;
-      color: #52665f;
-    }
-
-    .buttons {
+      padding: 18px 6%;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 12px;
-      max-width: 320px;
-      margin: 25px auto 0;
     }
-
-    button {
-      border: none;
-      border-radius: 9px;
-      padding: 14px;
-      font-size: 16px;
+    .logo { font-size: 25px; font-weight: bold; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+    .hero {
+      padding: 65px 7%;
+      text-align: center;
+      background: #e5efff;
+    }
+    .hero h1 { font-size: 36px; margin-bottom: 15px; }
+    .hero p { font-size: 18px; line-height: 1.8; }
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+      margin: 10px 5px;
+      border-radius: 8px;
+      text-decoration: none;
       font-weight: bold;
       cursor: pointer;
+      border: 0;
+      font-size: 15px;
     }
-
-    .primary {
-      background: #087f5b;
-      color: white;
-    }
-
-    .secondary {
-      background: #e0f2e9;
-      color: #087f5b;
-    }
-
-    .services {
-      padding: 25px 16px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .services h2 {
-      text-align: center;
-    }
-
-    .service-grid {
+    .primary { background: #1769d2; color: white; }
+    .secondary { background: white; color: #1769d2; }
+    section { padding: 35px 7%; }
+    .cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
     }
-
-    .service {
+    .card {
       background: white;
-      padding: 20px 8px;
-      text-align: center;
+      padding: 23px;
       border-radius: 12px;
-      box-shadow: 0 2px 7px #0000000d;
+      box-shadow: 0 3px 12px #0000000d;
     }
-
-    .service span {
-      font-size: 30px;
-      display: block;
-      margin-bottom: 8px;
+    .card h3 { color: #1769d2; }
+    .form-box {
+      max-width: 520px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
     }
-
-    .how {
-      background: #e0f2e9;
-      margin-top: 12px;
-      padding: 25px 20px;
-      line-height: 1.9;
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccd3df;
+      border-radius: 7px;
+      font-size: 16px;
     }
-
+    label { font-weight: bold; }
     footer {
-      background: #18332c;
+      background: #123b70;
       color: white;
       text-align: center;
-      padding: 18px;
-      font-size: 14px;
+      padding: 22px;
     }
-
-    #message {
-      text-align: center;
-      padding: 15px;
-      color: #087f5b;
-      font-weight: bold;
+    @media(max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      nav a { margin-left: 8px; }
     }
-  </style></head><body>  <header>
-    <h1>🔗 SiraConnect</h1>
-    <p>ስራን ከሰራተኛ ጋር የሚያገናኝ መድረክ</p>
-  </header>  <section class="hero">
-    <h2>የሚፈልጉትን ስራ በቀላሉ ያግኙ!</h2>
-    <p>
-      ስራ ይለጥፉ፣ የዋጋ ግምት ይቀበሉ፣
-      ተስማሚ ሰራተኛ ይምረጡ።
-    </p><div class="buttons">
-  <button class="primary" onclick="showMessage('post')">
-    📝 ስራ ለመለጠፍ
-  </button>
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🔧 SiraConnect</div>
+    <nav>
+      <a href="#home">መነሻ</a>
+      <a href="#services">አገልግሎቶች</a>
+      <a href="#post-job">ሥራ አስገባ</a>
+      <a href="#register">ተመዝገብ</a>
+    </nav>
+  </header>
 
-  <button class="secondary" onclick="showMessage('find')">
-    👷 ስራ ለማግኘት
-  </button>
-</div>
+  <main>
+    <section class="hero" id="home">
+      <h1>የሚፈልጉትን ባለሙያ በቀላሉ ያግኙ!</h1>
+      <p>
+        SiraConnect ደንበኞችን ከታማኝ የሥራ ባለሙያዎች ጋር
+        ለማገናኘት የተዘጋጀ መድረክ ነው።
+      </p>
+      <a class="button primary" href="#post-job">ሥራ አስገባ</a>
+      <a class="button secondary" href="#register">ባለሙያ ሁን</a>
+    </section>
 
-  </section>  <section class="services">
-    <h2>🔧 የስራ ዓይነቶች</h2><div class="service-grid">
-  <div class="service">
-    <span>🚰</span>
-    የቧንቧ ስራ
-  </div>
+    <section id="services">
+      <h2>የምናቀርባቸው አገልግሎቶች</h2>
+      <div class="cards">
+        <div class="card"><h3>🔌 ኤሌክትሪክ</h3><p>የኤሌክትሪክ ጥገናና ተከላ።</p></div>
+        <div class="card"><h3>🚰 የውሃ ቧንቧ</h3><p>የቧንቧ ተከላና ጥገና።</p></div>
+        <div class="card"><h3>🎨 ቀለም ቅብ</h3><p>የቤትና የሕንፃ ቀለም ቅብ።</p></div>
+        <div class="card"><h3>🪚 አናጢነት</h3><p>የበር፣ የቁም ሳጥንና የእንጨት ሥራ።</p></div>
+        <div class="card"><h3>🧹 ጽዳት</h3><p>የቤትና የቢሮ ጽዳት።</p></div>
+        <div class="card"><h3>🏗️ ግንባታ</h3><p>የግንባታና የጥገና ሥራዎች።</p></div>
+      </div>
+    </section>
 
-  <div class="service">
-    <span>⚡</span>
-    የኤሌክትሪክ ስራ
-  </div>
+    <section id="post-job">
+      <h2>አዲስ ሥራ አስገባ</h2>
+      <div class="form-box">
+        <form id="jobForm">
+          <label>የሥራው ርዕስ</label>
+          <input id="jobTitle" required placeholder="ለምሳሌ፦ የውሃ ቧንቧ ጥገና">
+          <label>የሥራው ዝርዝር</label>
+          <textarea id="jobDescription" required rows="4" placeholder="ስለ ሥራው ይግለጹ"></textarea>
+          <label>ከተማ / አካባቢ</label>
+          <input id="jobLocation" required placeholder="ለምሳሌ፦ ጂማ">
+          <button class="button primary" type="submit">ሥራውን አስገባ</button>
+        </form>
+        <div id="jobMessage" aria-live="polite"></div>
+      </div>
+    </section>
 
-  <div class="service">
-    <span>🎨</span>
-    የቀለም ቅብ
-  </div>
+    <section id="register">
+      <h2>የባለሙያ ምዝገባ</h2>
+      <div class="form-box">
+        <form id="workerForm">
+          <label>ሙሉ ስም</label>
+          <input id="workerName" required placeholder="ስምዎን ያስገቡ">
+          <label>የሥራ ዓይነት</label>
+          <select id="workerSkill" required>
+            <option value="">ይምረጡ</option>
+            <option>ኤሌክትሪክ</option>
+            <option>የውሃ ቧንቧ</option>
+            <option>ቀለም ቅብ</option>
+            <option>አናጢነት</option>
+            <option>ጽዳት</option>
+            <option>ግንባታ</option>
+            <option>ሌላ</option>
+          </select>
+          <label>ከተማ / አካባቢ</label>
+          <input id="workerLocation" required placeholder="የሚሠሩበት አካባቢ">
+          <button class="button primary" type="submit">ይመዝገቡ</button>
+        </form>
+        <div id="workerMessage" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
 
-  <div class="service">
-    <span>🧱</span>
-    የግንባታ ስራ
-  </div>
+  <footer>
+    <p>© 2026 SiraConnect — ሥራን ከባለሙያ ጋር እናገናኛለን።</p>
+  </footer>
 
-  <div class="service">
-    <span>🪚</span>
-    የእንጨት ስራ
-  </div>
+  <script>
+    document.getElementById("jobForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("jobMessage").textContent =
+        "ምስጋና! ቅጹ ተቀብሏል። ሥራው ግን ገና በዳታቤዝ ውስጥ አልተቀመጠም።";
+      this.reset();
+    });
 
-  <div class="service">
-    <span>🧹</span>
-    የጽዳት ስራ
-  </div>
-</div>
-
-  </section>  <div id="message"></div>  <section class="how">
-    <h2>💡 SiraConnect እንዴት ይሰራል?</h2>
-    <p>1. ደንበኛው ስራውን ይለጥፋል።</p>
-    <p>2. ሰራተኞች የዋጋ ግምት ያቀርባሉ።</p>
-    <p>3. ደንበኛው የሚፈልገውን ሰራተኛ ይመርጣል።</p>
-    <p>4. ስራው ይጠናቀቃል።</p>
-    <p>5. ክፍያው በተስማሙበት መንገድ ይፈጸማል።</p>
-  </section>  <footer>
-    <p>© 2026 SiraConnect</p>
-    <p>ስራን በቀላሉ እንድናገናኝ!</p>
-  </footer>  <script>
-    function showMessage(type) {
-      const message = document.getElementById("message");
-
-      if (type === "post") {
-        message.textContent =
-          "የስራ መለጠፊያ ገጽን በሚቀጥለው ደረጃ እንገነባለን!";
-      } else {
-        message.textContent =
-          "የሰራተኛ እና የስራ መፈለጊያ ገጽን በሚቀጥለው ደረጃ እንገነባለን!";
-      }
-    }
-  </script></body>
+    document.getElementById("workerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("workerMessage").textContent =
+        "ምስጋና! ቅጹ ተቀብሏል። ምዝገባው ግን ገና በዳታቤዝ ውስጥ አልተቀመጠም።";
+      this.reset();
+    });
+  </script>
+</body>
 </html>
