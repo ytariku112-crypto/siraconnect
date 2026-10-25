@@ -11,46 +11,46 @@
     <!-- Header -->
     <header class="bg-emerald-700 text-white shadow-lg sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl font-black tracking-wider">SiraConnect</span>
-            </div>
-            <span class="text-xs bg-emerald-800 px-3 py-1.5 rounded-full border border-emerald-600 font-medium shadow-inner">
-                💼 አሰሪ እና ሰራተኛ ማገናኛ
-            </span>
+            <span class="text-2xl font-black tracking-wider">SiraConnect</span>
+            <span class="text-xs bg-emerald-800 px-3 py-1.5 rounded-full border border-emerald-600 font-medium">💼 አሰሪ እና ሰራተኛ ማገናኛ</span>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 text-white py-14 px-4 text-center shadow-md">
+    <section class="bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 text-white py-12 px-4 text-center shadow-md">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">የእጅ ባለሙያዎችን በአቅራቢያዎ ያግኙ</h1>
-            <p class="text-emerald-100 mb-8 text-base md:text-lg leading-relaxed">
-                የቧንቧ፣ የመብራት፣ የቀለም፣ የሰድር እና የጽዳት ባለሙያዎችን በቀላሉ አገናኝተው በስራዎ ላይ ፍቱን መፍትሔ ያግኙ።
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#register" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-xl shadow-lg transition">ሙያተኛ በመሆን ይመዝገቡ</a>
-            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-4">የእጅ ባለሙያዎችን በአቅራቢያዎ ያግኙ</h1>
+            <p class="text-emerald-100 mb-6 text-sm md:text-base">የቧንቧ፣ የመብራት፣ የቀለም፣ የሰድር እና የጽዳት ባለሙያዎችን በቀላሉ አገናኝተው ፍቱን መፍትሔ ያግኙ።</p>
+            <a href="#register" class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-xl shadow-lg transition">ሙያተኛ በመሆን ይመዝገቡ</a>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-10">
         
+        <!-- Search & Filter Bar -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="w-full md:w-1/2">
+                <input type="text" id="searchInput" placeholder="ባለሙያ በስም ወይም በሙያ ይፈልጉ..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 text-sm">
+            </div>
+            <div class="text-xs text-slate-500 font-medium">
+                ፈጣን እና አስተማማኝ ማገናኛ ፕላትፎርም
+            </div>
+        </div>
+
         <!-- Registration Form Section -->
         <div id="register" class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-8">
-            <div class="mb-6 border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">👷‍♂️ አዲስ ባለሙያ ሆኖ መመዝገቢያ</h2>
-                <p class="text-sm text-slate-500 mt-1">መረጃዎን ያስገቡ እና ወዲያውኑ በዳሽቦርዱ ላይ እንዲታዩ ያድርጉ።</p>
-            </div>
+            <h2 class="text-xl font-bold text-slate-800 mb-2">👷‍♂️ አዲስ ባለሙያ ሆኖ መመዝገቢያ</h2>
+            <p class="text-xs md:text-sm text-slate-500 mb-6">መረጃዎን ያስገቡ እና ወዲያውኑ በዳሽቦርዱ ላይ እንዲታዩ ያድርጉ።</p>
 
-            <form id="providerForm" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <form id="providerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-2">ሙሉ ስምዎ</label>
-                    <input type="text" id="name" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-600 transition" placeholder="ለምሳሌ፡ አበበ ከበደ">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ሙሉ ስምዎ</label>
+                    <input type="text" id="name" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="ለምሳሌ፡ አበበ ከበደ">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-2">የስራ ዘርፍ (ሙያ)</label>
-                    <select id="category" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-600 transition">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">የስራ ዘርፍ (ሙያ)</label>
+                    <select id="category" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
                         <option value="የቧንቧ ስራ (Plumbing)">የቧንቧ ስራ (Plumbing)</option>
                         <option value="የመብራት ስራ (Electrical)">የመብራት ስራ (Electrical)</option>
                         <option value="የቀለም ስራ (Painting)">የቀለም ስራ (Painting)</option>
@@ -59,59 +59,52 @@
                     </select>
                 </div>
                 <div class="md:col-span-2">
-                    <label class="block text-sm font-bold text-slate-700 mb-2">ስልክ ቁጥር</label>
-                    <input type="tel" id="phone" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-600 transition" placeholder="ለምሳሌ፡ +251912345678">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ስልክ ቁጥር</label>
+                    <input type="tel" id="phone" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="ለምሳሌ፡ +251912345678">
                 </div>
                 <div class="md:col-span-2">
-                    <label class="block text-sm font-bold text-slate-700 mb-2">ስለ አገልግሎትዎ አጭር መግለጫ</label>
-                    <textarea id="desc" rows="3" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-600 transition" placeholder="የስራ ልምድዎን እና የሚሰጧቸውን አገልግሎቶች संक्षेप ይግለጹ..."></textarea>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ስለ አገልግሎትዎ አጭር መግለጫ</label>
+                    <textarea id="desc" rows="3" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="የስራ ልምድዎን ይግለጹ..."></textarea>
                 </div>
                 <div class="md:col-span-2">
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-2xl shadow-lg transition cursor-pointer text-center text-base">መዝገብ አክል</button>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition cursor-pointer text-sm">መዝገብ አክል</button>
                 </div>
             </form>
         </div>
 
         <!-- Providers Dashboard Section -->
         <div>
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-800">የተመዘገቡ ባለሙያዎች ዳሽቦርድ</h2>
-                    <p class="text-sm text-slate-500">አገልግሎት የሚፈልጉበትን ባለሙያ በቀጥታ በስልክ ያግኙ።</p>
-                </div>
-            </div>
-            
-            <!-- Grid Container -->
+            <h2 class="text-xl font-bold text-slate-800 mb-4">የተመዘገቡ ባለሙያዎች ዳሽቦርድ</h2>
             <div id="providersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Initial Card 1 -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 flex flex-col justify-between hover:shadow-md transition">
+                <!-- Default Card 1 -->
+                <div class="provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition" data-name="አበበ ከበደ" data-category="የቧንቧ ስራ (Plumbing)">
                     <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-bold text-lg text-slate-800">አበበ ከበደ</h3>
-                            <span class="text-amber-500 font-bold text-sm bg-amber-50 px-2.5 py-1 rounded-xl">⭐ 4.8</span>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-base text-slate-800">አበበ ከበደ</h3>
+                            <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 4.8</span>
                         </div>
-                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg inline-block mb-3">የቧንቧ ስራ (Plumbing)</span>
-                        <p class="text-sm text-slate-600 leading-relaxed">የቤት ውስጥ የቧንቧ ዝርጋታ እና የፍሳሽ ቱቦ ጥገና በብቃት እንሰራለን።</p>
+                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">የቧንቧ ስራ (Plumbing)</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">የቤት ውስጥ የቧንቧ ዝርጋታ እና የፍሳሽ ቱቦ ጥገና በብቃት እንሰራለን።</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-6 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-medium">አዲስ አበባ</span>
-                        <a href="tel:+251912345678" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2">📞 ደውል</a>
+                    <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400 font-medium">አዲስ አበባ</span>
+                        <a href="tel:+251912345678" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
                     </div>
                 </div>
 
-                <!-- Initial Card 2 -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 flex flex-col justify-between hover:shadow-md transition">
+                <!-- Default Card 2 -->
+                <div class="provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition" data-name="ዮናታን ታደሰ" data-category="የመብራት ስራ (Electrical)">
                     <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-bold text-lg text-slate-800">ዮናታን ታደሰ</h3>
-                            <span class="text-amber-500 font-bold text-sm bg-amber-50 px-2.5 py-1 rounded-xl">⭐ 4.9</span>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-base text-slate-800">ዮናታን ታደሰ</h3>
+                            <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 4.9</span>
                         </div>
-                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg inline-block mb-3">የመብራት ስራ (Electrical)</span>
-                        <p class="text-sm text-slate-600 leading-relaxed">የቤት እና የቢሮ የኤሌክትሪክ ዝርጋታ እና የCurrent ጥገና ባለሙያ።</p>
+                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">የመብራት ስራ (Electrical)</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">የቤት እና የቢሮ የኤሌክትሪክ ዝርጋታ እና የCurrent ጥገና ባለሙያ።</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-6 flex items-center justify-between">
-                        <span class="text-xs text-slate-400 font-medium">አዲስ አበባ</span>
-                        <a href="tel:+251923456789" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2">📞 ደውል</a>
+                    <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400 font-medium">አዲስ አበባ</span>
+                        <a href="tel:+251923456789" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
                     </div>
                 </div>
             </div>
@@ -119,16 +112,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-10 text-center text-sm mt-16">
-        <div class="max-w-6xl mx-auto px-4 space-y-3">
-            <p class="font-bold text-xl">SiraConnect</p>
-            <p class="text-slate-400 text-xs">ሰራን ከአሰራር ጋር በፈጣን እና አስተማማኝ ሁኔታ ማገናኛ ፕላትፎርም።</p>
-            <p class="text-slate-500 text-xs pt-4 border-t border-slate-800">© 2026 SiraConnect. መብቱ በህግ የተጠበቀ ነው።</p>
-        </div>
+    <footer class="bg-slate-900 text-white py-8 text-center text-xs mt-12">
+        <p class="font-bold text-base mb-1">SiraConnect</p>
+        <p class="text-slate-400">ሰራን ከአሰራር ጋር በፈጣን እና አስተማማኝ ሁኔታ ማገናኛ ፕላትፎርም።</p>
+        <p class="text-slate-500 mt-3 pt-3 border-t border-slate-800">© 2026 SiraConnect. መብቱ በህግ የተጠበቀ ነው።</p>
     </footer>
 
-    <!-- Script to handle dynamic registration smoothly -->
+    <!-- Script -->
     <script>
+        // Form Submission & Dynamic Card Generation
         document.getElementById('providerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
@@ -138,24 +130,41 @@
 
             const grid = document.getElementById('providersGrid');
             const card = document.createElement('div');
-            card.className = 'bg-white rounded-3xl shadow-sm border border-slate-100 p-6 flex flex-col justify-between hover:shadow-md transition transform animate-fade-in';
+            card.className = 'provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition';
+            card.setAttribute('data-name', name);
+            card.setAttribute('data-category', category);
             card.innerHTML = `
                 <div>
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-lg text-slate-800">${name}</h3>
-                        <span class="text-amber-500 font-bold text-sm bg-amber-50 px-2.5 py-1 rounded-xl">⭐ 5.0</span>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-base text-slate-800">${name}</h3>
+                        <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 5.0</span>
                     </div>
-                    <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg inline-block mb-3">${category}</span>
-                    <p class="text-sm text-slate-600 leading-relaxed">${desc}</p>
+                    <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">${category}</span>
+                    <p class="text-xs text-slate-600 leading-relaxed">${desc}</p>
                 </div>
-                <div class="border-t border-slate-100 pt-4 mt-6 flex items-center justify-between">
-                    <span class="text-xs text-slate-400 font-medium">አዲስ አበባ</span>
-                    <a href="tel:${phone}" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2">📞 ደውል</a>
+                <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
+                    <span class="text-11px text-slate-400 font-medium">አዲስ አበባ</span>
+                    <a href="tel:${phone}" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
                 </div>
             `;
             grid.prepend(card);
             this.reset();
             alert('በተሳካ ሁኔታ ተመዝግበዋል! መረጃዎ በዳሽቦርዱ ላይ ታክሏል።');
+        });
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.provider-card');
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                if (name.includes(term) || category.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
