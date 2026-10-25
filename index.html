@@ -76,37 +76,7 @@
         <div>
             <h2 class="text-xl font-bold text-slate-800 mb-4">የተመዘገቡ ባለሙያዎች ዳሽቦርድ</h2>
             <div id="providersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Default Card 1 -->
-                <div class="provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition" data-name="አበበ ከበደ" data-category="የቧንቧ ስራ (Plumbing)">
-                    <div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-base text-slate-800">አበበ ከበደ</h3>
-                            <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 4.8</span>
-                        </div>
-                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">የቧንቧ ስራ (Plumbing)</span>
-                        <p class="text-xs text-slate-600 leading-relaxed">የቤት ውስጥ የቧንቧ ዝርጋታ እና የፍሳሽ ቱቦ ጥገና በብቃት እንሰራለን።</p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
-                        <span class="text-[11px] text-slate-400 font-medium">አዲስ አበባ</span>
-                        <a href="tel:+251912345678" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
-                    </div>
-                </div>
-
-                <!-- Default Card 2 -->
-                <div class="provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition" data-name="ዮናታን ታደሰ" data-category="የመብራት ስራ (Electrical)">
-                    <div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-base text-slate-800">ዮናታን ታደሰ</h3>
-                            <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 4.9</span>
-                        </div>
-                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">የመብራት ስራ (Electrical)</span>
-                        <p class="text-xs text-slate-600 leading-relaxed">የቤት እና የቢሮ የኤሌክትሪክ ዝርጋታ እና የCurrent ጥገና ባለሙያ።</p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
-                        <span class="text-[11px] text-slate-400 font-medium">አዲስ አበባ</span>
-                        <a href="tel:+251923456789" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
-                    </div>
-                </div>
+                <!-- Cards loaded via JavaScript -->
             </div>
         </div>
     </main>
@@ -118,53 +88,70 @@
         <p class="text-slate-500 mt-3 pt-3 border-t border-slate-800">© 2026 SiraConnect. መብቱ በህግ የተጠበቀ ነው።</p>
     </footer>
 
-    <!-- Script -->
+    <!-- Script with localStorage persistence -->
     <script>
-        // Form Submission & Dynamic Card Generation
+        let providers = [
+            { name: "አበበ ከበደ", category: "የቧንቧ ስራ (Plumbing)", phone: "+251912345678", desc: "የቤት ውስጥ የቧንቧ ዝርጋታ እና የፍሳሽ ቱቦ ጥገና በብቃት እንሰራለን።", rating: "4.8" },
+            { name: "ዮናታን ታደሰ", category: "የመብራት ስራ (Electrical)", phone: "+251923456789", desc: "የቤት እና የቢሮ የኤሌክትሪክ ዝርጋታ እና የCurrent ጥገና ባለሙያ።", rating: "4.9" }
+        ];
+
+        // Load saved providers from localStorage
+        const saved = localStorage.getItem('siraconnect_providers');
+        if (saved) {
+            providers = JSON.parse(saved);
+        }
+
+        function renderProviders(filter = '') {
+            const grid = document.getElementById('providersGrid');
+            grid.innerHTML = '';
+            
+            providers.forEach(p => {
+                if (filter && !p.name.toLowerCase().includes(filter) && !p.category.toLowerCase().includes(filter)) {
+                    return;
+                }
+                const card = document.createElement('div');
+                card.className = 'provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-base text-slate-800">${p.name}</h3>
+                            <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ ${p.rating || '5.0'}</span>
+                        </div>
+                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">${p.category}</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">${p.desc}</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400 font-medium">አዲስ አበባ</span>
+                        <a href="tel:${p.phone}" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        renderProviders();
+
+        // Handle Form Submission & Save to localStorage
         document.getElementById('providerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const category = document.getElementById('category').value;
-            const phone = document.getElementById('phone').value;
-            const desc = document.getElementById('desc').value;
+            const newProvider = {
+                name: document.getElementById('name').value,
+                category: document.getElementById('category').value,
+                phone: document.getElementById('phone').value,
+                desc: document.getElementById('desc').value,
+                rating: "5.0"
+            };
 
-            const grid = document.getElementById('providersGrid');
-            const card = document.createElement('div');
-            card.className = 'provider-card bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col justify-between hover:shadow-md transition';
-            card.setAttribute('data-name', name);
-            card.setAttribute('data-category', category);
-            card.innerHTML = `
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-base text-slate-800">${name}</h3>
-                        <span class="text-amber-500 font-bold text-xs bg-amber-50 px-2 py-0.5 rounded-lg">⭐ 5.0</span>
-                    </div>
-                    <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block mb-2">${category}</span>
-                    <p class="text-xs text-slate-600 leading-relaxed">${desc}</p>
-                </div>
-                <div class="border-t border-slate-100 pt-3 mt-4 flex items-center justify-between">
-                    <span class="text-11px text-slate-400 font-medium">አዲስ አበባ</span>
-                    <a href="tel:${phone}" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition flex items-center gap-1.5">📞 ደውል</a>
-                </div>
-            `;
-            grid.prepend(card);
+            providers.unshift(newProvider);
+            localStorage.setItem('siraconnect_providers', JSON.stringify(providers));
+            renderProviders();
             this.reset();
-            alert('በተሳካ ሁኔታ ተመዝግበዋል! መረጃዎ በዳሽቦርዱ ላይ ታክሏል።');
+            alert('በተሳካ ሁኔታ ተመዝግበዋል! መረጃዎ በዳሽቦርዱ ላይ በቋሚነት ተቀምጧል።');
         });
 
         // Search Functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.provider-card');
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const category = card.getAttribute('data-category').toLowerCase();
-                if (name.includes(term) || category.includes(term)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            renderProviders(e.target.value.toLowerCase());
         });
     </script>
 </body>
