@@ -15,11 +15,6 @@
                 <span class="text-2xl font-black tracking-wider text-amber-400">🔧 SiraConnect</span>
                 <span class="text-xs bg-emerald-800 border border-emerald-500 px-2.5 py-1 rounded-full">📍 ሀዋሳ</span>
             </div>
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-                <a href="#home" class="hover:text-amber-300 transition">መነሻ</a>
-                <a href="#about" class="hover:text-amber-300 transition">ስለ እኛ</a>
-                <a href="#search" class="hover:text-amber-300 transition">ባለሙያ ፈልግ</a>
-            </nav>
             <div id="authNav" class="flex items-center gap-2">
                 <button onclick="openModal('login')" class="bg-emerald-800 hover:bg-emerald-900 text-xs font-bold px-3.5 py-2 rounded-xl transition">ይግቡ (Log In)</button>
                 <button onclick="openModal('signup')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl transition">ተመዝገቡ (Sign Up)</button>
@@ -27,51 +22,61 @@
         </div>
     </header>
 
-    <!-- Cover / Hero Section -->
-    <section id="home" class="bg-gradient-to-br from-emerald-800 via-teal-800 to-slate-900 text-white py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-emerald-700/60 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/50 inline-block mb-4">✨ የሀዋሳ ቁጥር አንድ የሰዎች እና ባለሙያዎች ማገናኛ</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">የእጅ ባለሙያዎችን በአቅራቢያዎ በፍጥነት ያግኙ</h1>
-            <p class="text-emerald-100 text-sm md:text-base mb-8 leading-relaxed">
-                SiraConnect በሀዋሳ ከተማ ውስጥ የሚገኙ የቧንቧ፣ የመብራት፣ የቤት ጽዳት፣ የቀለም እና ሌሎች ሙያተኞችን ከአገልግሎት ፈላጊዎች ጋር በቀጥታ የሚያገናኝ ዘመናዊ መድረክ ነው።
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="#search" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-xl text-sm shadow-lg transition">ሰራተኛ ፈልግ</a>
-                <button onclick="openModal('signup')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-lg transition">ሙያተኛ ሆኖ ይመዝገቡ</button>
+    <!-- Cover / Landing Page (መጀመሪያ የሚታየው ገጽ) -->
+    <div id="landingPage">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-emerald-800 via-teal-800 to-slate-900 text-white py-20 px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <span class="bg-emerald-700/60 text-emerald-200 text-xs font-bold px-3.5 py-1.5 rounded-full border border-emerald-500/50 inline-block mb-4">✨ የሀዋሳ ቁጥር አንድ የሰዎች እና ባለሙያዎች ማገናኛ</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">የእጅ ባለሙያዎችን በአቅራቢያዎ በፍጥነት ያግኙ</h1>
+                <p class="text-emerald-100 text-sm md:text-base mb-8 leading-relaxed">
+                    SiraConnect በሀዋሳ ከተማ ውስጥ የሚገኙ የቧንቧ፣ የመብራት፣ የቤት ጽዳት፣ የቀለም እና ሌሎች ሙያተኞችን ከአገልግሎት ፈላጊዎች ጋር በቀጥታ የሚያገናኝ ዘመናዊ መድረክ ነው።
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="openModal('signup')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-8 py-3.5 rounded-xl text-sm shadow-xl transition">አሁን ይመዝገቡ (Sign Up)</button>
+                    <button onclick="openModal('login')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm shadow-xl transition">አካውንት አለኝ (Log In)</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section (ስለ ዌብሳይቱ ማብራሪያ) -->
-    <section id="about" class="max-w-6xl mx-auto px-4 py-12">
-        <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">SiraConnect እንዴት ይሰራል?</h2>
-                <p class="text-slate-500 text-sm">ለተጠቃሚዎች እና ለባለሙያዎች ቀላል፣ ፈጣን እና አስተማማኝ አሰራርን ዘርግተናል።</p>
+        <!-- About Section (ስለ ዌብሳይቱ ማብራሪያ) -->
+        <section class="max-w-6xl mx-auto px-4 py-16">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-2">SiraConnect እንዴት ይሰራል?</h2>
+                    <p class="text-slate-500 text-sm">ፕላትፎርሙን ለመጠቀም መጀመሪያ መመዝገብ ወይም መግባት ይጠበቅብዎታል።</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">1</div>
+                        <h3 class="font-bold text-slate-800 mb-2">ምዝገባ (Sign Up)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">ሙያተኛ ከሆኑ ስራዎን፣ ስልክ ቁጥርዎን እና የሚገኙበትን የሀዋሳ አካባቢ በመመዝገብ መረጃዎን ያስቀምጡ።</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">2</div>
+                        <h3 class="font-bold text-slate-800 mb-2">ፍለጋ እና ማጣሪያ (Search)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">ከገቡ በኋላ የሚፈልጉትን የሥራ ዓይነት እና እንደ ታቦር፣ መሀል ከተማ ያሉ አካባቢዎችን በመምረጥ ባለሙያዎችን ያገኛሉ።</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">3</div>
+                        <h3 class="font-bold text-slate-800 mb-2">ቀጥታ ግንኙነት (Call)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">የባለሙያውን ስልክ ቁጥር በመንካት በቀጥታ በመደወል ስራዎን ማሰራት እና መፍትሄ ማግኘት ይችላሉ።</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">1</div>
-                    <h3 class="font-bold text-slate-800 mb-2">ምዝገባ (Sign Up)</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">ባለሙያ ከሆኑ ስራዎን፣ ስልክ ቁጥርዎን እና የሚገኙበትን የሀዋሳ አካባቢ በመመዝገብ መረጃዎን ያስቀምጡ።</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">2</div>
-                    <h3 class="font-bold text-slate-800 mb-2">ፍለጋ እና ማጣሪያ (Search)</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">አገልግሎት ፈላጊዎች የሚፈልጉትን የሥራ ዓይነት እና እንደ ታቦር፣ መሀል ከተማ ያሉ አካባቢዎችን በመምረጥ ባለሙያዎችን ያገኛሉ።</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-700 font-bold rounded-2xl flex items-center justify-center mx-auto mb-4 text-lg">3</div>
-                    <h3 class="font-bold text-slate-800 mb-2">ቀጥታ ግንኙነት (Call)</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">የባለሙያውን ስልክ ቁጥር በመንካት በቀጥታ በመደወል ስራዎን ማሰራት እና መፍትሄ ማግኘት ይችላሉ።</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Main Search & Dashboard Section -->
-    <main id="search" class="max-w-6xl mx-auto px-4 py-8 space-y-8">
-        
+    <!-- Main Search & Dashboard Section (Hidden until Sign Up / Log In) -->
+    <main id="dashboardSection" class="max-w-6xl mx-auto px-4 py-8 space-y-8 hidden">
+        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl flex justify-between items-center">
+            <div>
+                <h2 class="font-bold text-emerald-900 text-base" id="welcomeMsg">እንኳን ደህና መጡ!</h2>
+                <p class="text-xs text-emerald-700">አሁን በሀዋሳ ከተማ ውስጥ ያሉ ባለሙያዎችን መፈለግ እና ማግኘት ይችላሉ።</p>
+            </div>
+            <button onclick="logout()" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">ከአካውንት ውጣ</button>
+        </div>
+
         <!-- Search and Filter Bar -->
         <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-3 items-center justify-between">
             <select id="searchSkill" onchange="searchWorkers()" class="w-full md:w-1/3 px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
@@ -117,7 +122,7 @@
             <!-- Sign Up Form -->
             <div id="signupBox">
                 <h2 class="text-xl font-bold text-slate-800 mb-1">👷 አዲስ የሰራተኛ ምዝገባ (Sign Up)</h2>
-                <p class="text-xs text-slate-500 mb-4">መረጃዎን ያስገቡ፤ ወዲያውኑ በዳሽቦርዱ ላይ እንዲታይ ይደረጋል።</p>
+                <p class="text-xs text-slate-500 mb-4">መረጃዎን ያስገቡ፤ ወዲያውኑ ወደ ዳሽቦርዱ ይገባሉ።</p>
                 <form id="workerForm" class="space-y-3">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">ሙሉ ስም</label>
@@ -158,7 +163,7 @@
                         <label class="block text-xs font-bold text-slate-700 mb-1">የሥራ ልምድ እና መግለጫ</label>
                         <textarea id="workerExperience" rows="2" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="ምን ያህል ልምድ አለዎት?"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow transition">መረጃዬን አስገባ</button>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow transition">መረጃዬን አስገባ እና ግባ</button>
                 </form>
                 <p class="text-xs text-center text-slate-500 mt-4">አካውንት አለዎት? <button onclick="toggleAuth('login')" class="text-emerald-700 font-bold underline">ይግቡ (Log In)</button></p>
             </div>
@@ -186,7 +191,7 @@
         <p class="text-slate-500 mt-3 pt-3 border-t border-slate-800">© 2026 SiraConnect. መብቱ በህግ የተጠበቀ ነው።</p>
     </footer>
 
-    <!-- Script with Persistence -->
+    <!-- Script with Flow Control -->
     <script>
         let defaultWorkers = [
             { name: "ዳዊት ተስፋዬ", phone: "+251916112233", skill: "የውሃ ቧንቧ", location: "ታቦር", price: "በስምምነት", experience: "የቤት ውስጥ የቧንቧ እና የውሃ ቆጣሪ ዝርጋታ ጥገና ባለሙያ።" },
@@ -197,17 +202,26 @@
         let workers = JSON.parse(localStorage.getItem('hawassa_workers')) || defaultWorkers;
         let currentUser = JSON.parse(localStorage.getItem('hawassa_current_user')) || null;
 
-        function updateNav() {
+        function checkViewState() {
+            const landing = document.getElementById('landingPage');
+            const dashboard = document.getElementById('dashboardSection');
             const nav = document.getElementById('authNav');
+
             if (currentUser) {
+                landing.classList.add('hidden');
+                dashboard.classList.remove('hidden');
+                document.getElementById('welcomeMsg').textContent = `እንኳን ደህና መጡ፣ ${currentUser.name}!`;
                 nav.innerHTML = `
                     <span class="text-xs bg-emerald-800 text-amber-300 font-bold px-3 py-2 rounded-xl border border-emerald-600">👤 ${currentUser.name}</span>
                     <button onclick="logout()" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-3 py-2 rounded-xl transition">ውጣ</button>
                 `;
+                searchWorkers();
             } else {
+                landing.classList.remove('hidden');
+                dashboard.classList.add('hidden');
                 nav.innerHTML = `
-                    <button onclick="openModal('login')" class="bg-emerald-800 hover:bg-emerald-900 text-xs font-bold px-3 py-2 rounded-xl transition">ይግቡ (Log In)</button>
-                    <button onclick="openModal('signup')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-xl transition">ተመዝገቡ (Sign Up)</button>
+                    <button onclick="openModal('login')" class="bg-emerald-800 hover:bg-emerald-900 text-xs font-bold px-3.5 py-2 rounded-xl transition">ይግቡ (Log In)</button>
+                    <button onclick="openModal('signup')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3.5 py-2 rounded-xl transition">ተመዝገቡ (Sign Up)</button>
                 `;
             }
         }
@@ -271,11 +285,10 @@
             currentUser = newWorker;
             localStorage.setItem('hawassa_current_user', JSON.stringify(currentUser));
 
-            updateNav();
-            searchWorkers();
             closeModal();
             this.reset();
-            alert("መረጃዎ ተመዝግቧል! አሁን በዳሽቦርዱ ላይ ይገኛል።");
+            checkViewState();
+            alert("በተሳካ ሁኔታ ተመዝግበዋል! ወደ ዳሽቦርዱ ገብተዋል።");
         });
 
         // Modal Controls
@@ -304,8 +317,8 @@
             if (found) {
                 currentUser = found;
                 localStorage.setItem('hawassa_current_user', JSON.stringify(currentUser));
-                updateNav();
                 closeModal();
+                checkViewState();
                 alert(`እንኳን ደህና መጡ ${found.name}!`);
             } else {
                 alert('በዚህ ስልክ ቁጥር የተመዘገበ አካውንት አልተገኘም። እባክዎን አስቀድመው ይመዝገቡ (Sign Up)።');
@@ -315,12 +328,11 @@
         function logout() {
             currentUser = null;
             localStorage.removeItem('hawassa_current_user');
-            updateNav();
+            checkViewState();
         }
 
-        // Initial Load
-        updateNav();
-        searchWorkers();
+        // Initial Load Check
+        checkViewState();
     </script>
 </body>
 </html>
